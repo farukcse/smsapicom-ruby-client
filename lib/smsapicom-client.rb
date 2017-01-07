@@ -1,0 +1,1 @@
+require 'smsapicom/client'
