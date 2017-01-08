@@ -1,8 +1,10 @@
 require 'faraday'
 require 'smsapicom/client/errors'
+require 'active_support/configurable'
 module Smsapicom
   module Client
     class SmsSender
+      include ActiveSupport::Configurable
       attr_accessor :params
 
       def self.call(to: nil, message: nil, date: nil)
@@ -20,10 +22,10 @@ module Smsapicom
       end
 
       def set_params
-        params[:url] = ENV['URL']
-        params[:username] = ENV['USERNAME']
-        params[:password] = ENV['PASSWORD']
-        params[:from] = ENV['FROM']
+        params[:url] = config.url
+        params[:username] = config.username
+        params[:password] = config.password
+        params[:from] = config.from
         unless params[:date].nil?
           params[:date] = params[:date].to_time.to_i.to_s
         end

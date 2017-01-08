@@ -4,12 +4,12 @@ module Smsapicom
       class BaseError < StandardError; end
 
       class SmsSendFailed < BaseError
-        def initialize(attributes)
-          @attributes = attributes
+        def initialize(error_message)
+          @error_message = error_message
         end
 
         def to_s
-          "attributes: #{@attributes}, Failed to send sms"
+          "#{@error_message}, Failed to send sms"
         end
       end
     end

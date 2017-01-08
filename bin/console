@@ -3,6 +3,13 @@
 require "bundler/setup"
 require "smsapicom/client"
 
+Smsapicom::Client::SmsSender.configure do |config|
+  config.url = ENV['URL']
+  config.username = ENV['USERNAME']
+  config.password = ENV['PASSWORD']
+  config.from = ENV['FROM']
+end
+
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
