@@ -15,7 +15,8 @@ module Smsapicom
 
       def call
         set_params
-        connection.post { |req| req.body = params }
+        response = connection.post { |req| req.body = params }
+        raise Smsapicom::Client::Errors::SmsSendFailed, response.body if response.body['ERROR']
       end
 
       def set_params
