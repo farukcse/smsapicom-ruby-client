@@ -26,9 +26,6 @@ module Smsapicom
         params[:username] = config.username
         params[:password] = config.password
         params[:from] = config.from
-        unless params[:date].nil?
-          params[:date] = params[:date].to_time.to_i.to_s
-        end
       end
 
       def connection

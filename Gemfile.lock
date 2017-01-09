@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smsapicom-client (0.1.0)
+    smsapicom-client (0.0.1)
       activesupport (~> 5.0.0)
       faraday (~> 0.10.1)
 
